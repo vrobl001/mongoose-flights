@@ -12,7 +12,7 @@
         <th></th>
       </thead>
       <tbody>
-        <% flights.forEach(flight => { %>
+        <% if(flights) {flights.forEach(flight => { %>
         <tr>
           <td><%= flight.airline %></td>
           <td><%= flight.flightNo %></td>
@@ -25,7 +25,7 @@
             </form>
           </td>
         </tr>
-        <% }) %>
+        <% })} %>
       </tbody>
     </table>
   </div>
