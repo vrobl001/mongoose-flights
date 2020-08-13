@@ -3,11 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Vincent Robles",
-  "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",
     "ejs": "^3.0.1",
@@ -15,5 +10,21 @@
     "mongoose": "^5.9.5",
     "morgan": "^1.9.1",
     "path": "^0.12.7"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vrobl001/mongoose-flights.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vrobl001/mongoose-flights/issues"
+  },
+  "homepage": "https://github.com/vrobl001/mongoose-flights#readme"
 }
