@@ -2,6 +2,7 @@
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
+const methodOverride = require('method-override');
 const port = process.env.PORT || 3000;
 
 // set up express app
@@ -19,6 +20,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride('_method'));
 
 // Mount routes app.use()
 app.use('/', require('./routes/index'));

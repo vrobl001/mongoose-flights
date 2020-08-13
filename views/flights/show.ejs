@@ -1,121 +1,122 @@
-<%- include('../partials/header') %>
-<h2 class="ml-5">Flight Details</h2>
-<div class="shadow m-2">
-  <table class="table">
-    <thead class="thead-dark">
-      <th>Flight:</th>
-      <th>Flight Number:</th>
-      <th>Departs:</th>
-      <th>Airport:</th>
-    </thead>
-    <tbody>
-      <tr>
-        <td><%= flight.airline %></td>
-        <td><%= flight.flightNo %></td>
-        <td><%= flight.departs %></td>
-        <td><%= flight.airport %></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<div class="shadow m-2">
-  <table class="table table-striped">
-    <thead class="thead-dark">
-      <th>Tickets</th>
-      <th>Price</th>
-    </thead>
-    <tbody>
-      <tr></tr>
-
-      <% if (tickets.length) { %> <% tickets.forEach(ticket => { %>
-      <tr>
-        <td><%= ticket.seat %></td>
-        <td>$<%= ticket.price %></td>
-      </tr>
-
-      <% }) %> <% } else { %>
-
-      <tr>
-        <td>No Tickets Purchased Yet</td>
-        <td></td>
-      </tr>
-
-      <% } %>
-    </tbody>
-  </table>
-</div>
-
-<a class="btn btn-link" href="/flights/<%=flight._id%>/tickets/new">
-  <p id="buyTicket" class="m-2">Buy Ticket</p>
-</a>
-
-<br /><br />
-<h2 class="ml-5">Destinations</h2>
-<div class="shadow m-2">
-  <table class="table table-striped">
-    <thead class="thead-dark">
-      <tr>
-        <th>Destination</th>
-        <th>Arrival Date</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr></tr>
-      <% if (flight.destinations.length) { %> <% flight.destinations.forEach(des => { %>
-      <tr>
-        <td><%= des.airport %></td>
-        <td><%= des.arrival %></td>
-      </tr>
-      <% }); %> <% } else { %>
-
-      <tr>
-        <td>
-          No Destinations Yet
-        </td>
-        <td></td>
-      </tr>
-
-      <% } %>
-    </tbody>
-  </table>
-</div>
-
-<br /><br />
-
-<h2 class="ml-5">Add New Destination</h2>
-<div class="m-2">
-  <table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th>Arrival Information</th>
-      </tr>
-      </thead>
-  </table>
-
-</div>
-<div class="shadow m-2 p-2">
-  <form action="/flights/<%= flight._id %>/destinations" method="POST">
-    <div class="form-group">
-      </thead>
-      <label
-        >Airport
-        <select class="form-control" name="airport">
-          <option value="AUS">AUS</option>
-          <option value="DAL">DAL</option>
-          <option value="LAX">LAX</option>
-          <option value="SEA">SEA</option>
-        </select>
-      </label>
+<%- include('../partials/header/header') %>
+<div class="pageContainer">
+  <div class="page">
+    <h2 class="ml-5">Flight Details</h2>
+    <div class="shadow m-2">
+      <table class="table">
+        <thead class="thead-dark">
+          <th>Flight:</th>
+          <th>Flight Number:</th>
+          <th>Departs:</th>
+          <th>Airport:</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= flight.airline %></td>
+            <td><%= flight.flightNo %></td>
+            <td><%= flight.departs %></td>
+            <td><%= flight.airport %></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
-    <div class="form-group">
-      <label
-        >Arrival
-        <input class="form-control" name="arrival" type="datetime-local" />
-      </label>
+    <div class="shadow m-2">
+      <table class="table table-striped">
+        <thead class="thead-dark">
+          <th>Tickets</th>
+          <th>Price</th>
+        </thead>
+        <tbody>
+          <tr></tr>
+
+          <% if (tickets.length) { %> <% tickets.forEach(ticket => { %>
+          <tr>
+            <td style="border: none;"><%= ticket.seat %></td>
+            <td style="border: none;">$<%= ticket.price %></td>
+          </tr>
+
+          <% }) %> <% } else { %>
+
+          <tr>
+            <td style="border: none;">No Tickets Purchased Yet</td>
+            <td style="border: none;"></td>
+          </tr>
+
+          <% } %>
+        </tbody>
+      </table>
     </div>
-    <button class="m-1 btn btn-default border" type="submit">Save Destination</button>
-  </form>
+
+    <a class="btn btn-link" href="/flights/<%=flight._id%>/tickets/new">
+      <p id="buyTicket" class="m-2 btn btn-primary">Buy Ticket</p>
+    </a>
+
+    <br /><br />
+    <h2 class="ml-5">Destinations</h2>
+    <div class="shadow m-2">
+      <table class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th>Destination</th>
+            <th>Arrival Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr></tr>
+          <% if (flight.destinations.length) { %> <% flight.destinations.forEach(des => { %>
+          <tr>
+            <td style="border: none;"><%= des.airport %></td>
+            <td style="border: none;"><%= des.arrival %></td>
+          </tr>
+          <% }); %> <% } else { %>
+
+          <tr>
+            <td>
+              No Destinations Yet
+            </td>
+            <td></td>
+          </tr>
+
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+
+    <br /><br />
+
+    <h2 class="ml-5">Add New Destination</h2>
+
+    <table class="table" style="margin-bottom: 0;">
+      <thead class="thead-dark">
+        <tr>
+          <th>Arrival Information</th>
+        </tr>
+      </thead>
+    </table>
+    <div class="shadow m-2 p-2" style="width: 60rem; background-color: white; margin-top: 0; height: 100%;">
+      <form action="/flights/<%= flight._id %>/destinations" method="POST">
+        <div class="form-group">
+          <label
+            >Airport
+            <select class="form-control" name="airport">
+              <option value="AUS">AUS</option>
+              <option value="DAL">DAL</option>
+              <option value="LAX">LAX</option>
+              <option value="SEA">SEA</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label
+            >Arrival
+            <input class="form-control" name="arrival" type="datetime-local" />
+          </label>
+        </div>
+        <button class="m-1 btn btn-default border" type="submit">Save Destination</button>
+      </form>
+    </div>
+  </div>
 </div>
-<%- include('../partials/footer') %>
+<%- include('../partials/footer/footer') %>
