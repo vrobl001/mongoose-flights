@@ -4,11 +4,6 @@ var path = require('path');
 var logger = require('morgan');
 const port = process.env.PORT || 3000;
 
-const indexRouter = require('./routes/index');
-const flightsRouter = require('./routes/flights');
-const destinationsRouter = require('./routes/destinations');
-const ticketsRouter = require('./routes/tickets');
-
 // set up express app
 const app = express();
 
@@ -26,10 +21,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Mount routes app.use()
-app.use('/', indexRouter);
-app.use('/flights', flightsRouter);
-app.use('/', destinationsRouter);
-app.use('/', ticketsRouter);
+app.use('/', require('./routes/index'));
+app.use('/flights', require('./routes/flights'));
+app.use('/flights', require('./routes/destinations'));
+app.use('/flights', require('./routes/tickets'));
 
 // Tell app to listen
 app.listen(port, () => {
