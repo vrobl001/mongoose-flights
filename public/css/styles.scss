@@ -1,0 +1,55 @@
+@import '../../views/_index.scss';
+@import '../../views/flights/_flights.scss';
+@import '../../views/partials/footer/_footer.scss';
+@import '../../views/partials/header/_header.scss';
+@import '../../views/tickets/_tickets.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.appOuterContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  .appInnerContainer {
+    flex-grow: 1;
+  }
+}
+
+.pageContainer {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.page {
+  background-color: lightgray;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Open Sans', sans-serif;
+  padding-top: 4.5rem;
+  padding-bottom: 1rem;
+  width: 100%;
+  tr,
+  table,
+  th,
+  td {
+    width: 60rem;
+  }
+  table {
+    height: 100%;
+    background-color: white;
+  }
+  input {
+    width: 20rem;
+  }
+  h2 {
+    color: rgba(0, 0, 0, 0.8);
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+  }
+}

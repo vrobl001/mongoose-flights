@@ -1,0 +1,33 @@
+.navbar {
+  background-color: rgba(0, 0, 0, 0.85);
+  font-family: 'Open Sans', sans-serif;
+  height: 3.5rem;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+
+  .navbar-brand {
+    margin-left: 0.75rem;
+    svg {
+      height: 2rem;
+      width: 2rem;
+    }
+  }
+
+  ul {
+    height: 3.5rem;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    height: 3.5rem;
+    padding: 0 0.75rem;
+  }
+  li:hover {
+    background-color: rgba(100, 100, 100, 0.1);
+    color: white;
+  }
+}
